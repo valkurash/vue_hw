@@ -1,0 +1,20 @@
+1. Сделать компонентов форму для объекта чтобы всё разные элементы работали через v-model
+{
+  "id": 0,
+  "isActive": false,
+  "balance": "$1,913.57",
+  "picture": "http://i.imgur.com/xmm2bjD.png",
+  "age": 32,
+  "accessLevel": "user",
+  "firstName": "Mabel",
+  "lastName": "Miranda",
+  "company": "LIQUIDOC",
+  "email": "mabel.miranda@liquidoc.biz",
+  "phone": "+7 (971) 535-2903",
+  "address": "540 Stuyvesant Avenue, Ivanhoe, Arizona, 1682",
+  "about": "Enim qui dolor aute elit reprehenderit consectetur proident. Occaecat cupidatat sunt elit qui ullamco Lorem deserunt. Consectetur eiusmod reprehenderit eiusmod duis excepteur laborum voluptate do.",
+  "registered": "16.04.2016"
+}
+
+2. Сделать набросок отдельной страницы где будет отображение таблицей списка пользователей
+3. (продвинутые) Можно vue-cli ставить и переносить на .vue файлы

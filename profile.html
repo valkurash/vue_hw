@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html class="no-js">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>User profile</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div id="profile">
+        <form id="form" v-on:submit.prevent="saveUser" class="form-horizontal">
+            <fieldset>
+                <legend>User profile</legend>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="accessLevel">Role</label>
+                    <div class="col-md-4">
+                        <select id="accessLevel" v-model="user.accessLevel" name="accessLevel" class="form-control">
+                                <option v-for="option in roles" :value="option.value">
+                                        {{ option.text }}
+                                      </option>
+                          </select>
+                    </div>
+                </div>
+                <common-field type="text" name="firstName" placeholder="Name" v-model="user.firstName"></common-field>
+                <common-field type="text" name="lastName" placeholder="Surname" v-model="user.lastName"></common-field>
+                <common-field type="text" name="picture" placeholder="Picture" v-model="user.picture"></common-field>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <img :src="imagePath" alt="picture" />
+                    </div>
+                </div>
+                <common-field type="number" name="age" placeholder="Age" v-model="user.age"></common-field>
+                <common-field type="text" name="company" placeholder="Company" v-model="user.company"></common-field>
+                <common-field type="text" name="balance" placeholder="Balance" v-model="user.balance"></common-field>
+                <!--<div class="form-group">
+                    <label class="col-md-2 control-label" for="balance">Balance</label>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <div class="input-group-addon">{{balance.currency}}</div>
+                            <input id="balance.value" v-model="balance.value" type="text" class="form-control" placeholder="Balance">
+                            <div class="input-group-addon">{{balance.fixed}}</div>
+                        </div>
+                    </div>
+                </div>-->
+                <common-field type="email" name="email" placeholder="Email" v-model="user.email"></common-field>
+                <common-field type="tel" name="phone" placeholder="Phone" v-model="user.phone"></common-field>
+                <common-field type="text" name="address" placeholder="Address" v-model="user.address"></common-field>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Is Active</label>
+                    <div class="col-md-4">
+                        <label class="checkbox-inline" for="isActive">
+                            <input v-model="user.isActive" type="checkbox" name="checkboxes" id="isActive">
+                            {{user.isActive}}
+                          </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="about">About</label>
+                    <div class="col-md-4">
+                        <textarea id="about" v-model="user.about" name="about" class="form-control" rows="5"></textarea>
+                    </div>
+                </div>
+                <!-- Не работает с type="date"-->
+                <common-field type="text" name="registered" placeholder="Registered" v-model="user.registered"></common-field>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </fieldset>
+            <pre>{{user}}</pre>
+        </form>
+
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
