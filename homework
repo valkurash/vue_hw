@@ -1,20 +1,41 @@
-1. Сделать компонентов форму для объекта чтобы всё разные элементы работали через v-model
-{
-  "id": 0,
-  "isActive": false,
-  "balance": "$1,913.57",
-  "picture": "http://i.imgur.com/xmm2bjD.png",
-  "age": 32,
-  "accessLevel": "user",
-  "firstName": "Mabel",
-  "lastName": "Miranda",
-  "company": "LIQUIDOC",
-  "email": "mabel.miranda@liquidoc.biz",
-  "phone": "+7 (971) 535-2903",
-  "address": "540 Stuyvesant Avenue, Ivanhoe, Arizona, 1682",
-  "about": "Enim qui dolor aute elit reprehenderit consectetur proident. Occaecat cupidatat sunt elit qui ullamco Lorem deserunt. Consectetur eiusmod reprehenderit eiusmod duis excepteur laborum voluptate do.",
-  "registered": "16.04.2016"
+https://github.com/vuejs-templates/webpack
+
+- Создать проект с vue-cli и шаблона webpack
+- Подключить vue-router
+- Установить json-server для REST
+- Сгенерировать тестовых данных по шаблону
+- Реализовать переход на страницу с выставлением активного пункта меню
+- Реализовать компонент страницы со списком пользователей
+  - Реализовать получение данных по REST
+  - Реализовать компонент выбора количества строк на страницу таблицы
+  - Реализовать компонент для пагинации по страницам таблицы
+  - Подключить оба компонента чтобы работали в паре
+- Реализовать переход на страницу редактирования пользователя
+  - Реализовать получение данных по REST
+  - Реализовать сохранение изменений
+  - Реализовать удаление пользователя
+
+  http://json-generator.com/
+{'users':['{{repeat(11)}}',
+   {
+      id: '{{index()}}',
+      isActive: '{{bool()}}',
+      balance: '{{floating(1000, 4000, 2, "$0,0.00")}}',
+      picture: 'http://placehold.it/128x128',
+      age: '{{integer(20, 40)}}',
+      accessLevel: '{{random("guest", "user", "admin")}}',
+      firstName: '{{firstName()}}',
+      lastName: '{{surname()}}',
+      company: '{{company().toUpperCase()}}',
+      email: '{{email([random])}}',
+      phone: '+7 {{phone()}}',
+      address: '{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
+      about: '{{lorem(1, "paragraphs")}}',
+     registered: '{{date( new Date(2010, 0, 1), new Date(), "dd.MM.YYYY")}}'
+
+   }
+]
 }
 
-2. Сделать набросок отдельной страницы где будет отображение таблицей списка пользователей
-3. (продвинутые) Можно vue-cli ставить и переносить на .vue файлы
+
+В таблице выбор количества элементов юзеров на страницы и пагинация
