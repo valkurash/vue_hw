@@ -1,27 +1,12 @@
 <template>
     <table class="table table-hover">
         <thead>
-            <tr>
-                <th>id</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Company</th>
-            </tr>
+            <slot name="thead"></slot>
         </thead>
+
         <tbody>
-            <tr v-for="user in users" :key="user.id">
-                <td>
-                    <router-link :to="`/user/${user.id}`">{{ user.id }}</router-link>
-                </td>
-                <td>
-                    {{ user.firstName }}
-                </td>
-                <td>
-                    {{ user.lastName }}
-                </td>
-                <td>
-                    {{ user.company }}
-                </td>
+            <tr v-for="item in items" :key="item.id">
+                <slot name="row" v-bind="item"></slot>
             </tr>
         </tbody>
     </table>
@@ -32,7 +17,7 @@
 export default {
     name: 'usersTable',
     props: {
-        users: {
+        items: {
             type: Array,
             required: true
         },

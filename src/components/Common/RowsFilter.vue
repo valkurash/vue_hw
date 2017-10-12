@@ -1,11 +1,11 @@
 <template>
     <div class="form-group col-md-8 row">
-        <label class="col-md-2 col-form-label" for="rowsPerPage">Users per page:</label>
+        <label class="col-md-2 col-form-label" for="rowsPerPage">
+            <slot name="title"></slot>
+        </label>
         <div class="col-md-4">
             <select class="form-control" id="rowsPerPage" :value="value" @input="updateValue">
-                <option v-for="option in [2,5,10,20]" :value="option" :key="option">
-                    {{ option }}
-                </option>
+                <slot name="filter"></slot>
             </select>
         </div>
     </div>

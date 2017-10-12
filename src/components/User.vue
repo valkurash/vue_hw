@@ -15,7 +15,6 @@
 
 <script>
 import axios from 'axios';
-import userForm from './UserForm/UserForm';
 
 export default {
   name: 'User',
@@ -23,7 +22,7 @@ export default {
     id: { type: String, required: true }
   },
   components: {
-    'user-form': userForm
+    'user-form': () => import('./UserForm/UserForm')
   },
   data() {
     return {
@@ -81,9 +80,3 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1 {
-  text-align: center;
-}
-</style>
