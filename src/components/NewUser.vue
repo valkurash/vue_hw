@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Add new User</h1>
-    <user-form :user="user"></user-form>
+    <user-form v-model="user"></user-form>
     <div class="form-group offset-md-4 col-md-8">
       <div class="col-md-offset-2 col-md-10">
         <button type="button" class="btn btn-primary" @click="saveUser">Save</button>

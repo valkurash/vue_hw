@@ -9,9 +9,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="(user, index) in usersList" :key="user.id">
+            <tr v-for="user in users" :key="user.id">
                 <td>
-                    <a :href="'/user/' + user.id">{{ user.id }}</a>
+                    <router-link :to="`/user/${user.id}`">{{ user.id }}</router-link>
                 </td>
                 <td>
                     {{ user.firstName }}
@@ -35,19 +35,6 @@ export default {
         users: {
             type: Array,
             required: true
-        },
-        rowsPerPage: {
-            type: Number,
-            required: true
-        },
-        selectedPage: {
-            type: Number,
-            required: true
-        }
-    },
-    computed: {
-        usersList() {
-            return this.users.map((e, i) => (i % this.rowsPerPage === 0) ? this.users.slice(i, i + this.rowsPerPage) : null).filter((e) => e)[this.selectedPage - 1]
         },
     },
 };
